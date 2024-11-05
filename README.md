@@ -1,5 +1,7 @@
 # Task Management System
 
+![alt text](image.png)
+
 A modern task management system built with Next.js 15, TypeScript, and Express.
 This project demonstrates a scalable architecture ready for future enhancements.
 
@@ -8,6 +10,62 @@ Used one of my favorite AI tools: [Cline](https://github.com/cline/cline)
 
 Clocked in 3 hours ind 16 minutes, mostly reading latest docs on NextJS 15
 and Express 5, and deciding how should the project be structured.
+
+## Up and running
+
+### Using Docker compose
+
+#### Start the containers
+
+```bash
+docker compose up
+```
+
+#### Stop the containers
+
+```bash
+docker compose down
+```
+
+The services will be available at:
+
+-   Frontend: <http://localhost:3000>
+-   Backend: <http://localhost:3001>
+-   Swagger UI: <http://localhost:3001/docs>
+
+### Manual Setup (Without Docker)
+
+If you prefer to run the services without Docker:
+
+1. Install dependencies:
+
+    ```bash
+    # Install backend dependencies
+    cd backend
+    npm install
+
+    # Install frontend dependencies
+    cd ../frontend
+    npm install
+    ```
+
+2. Start the backend server:
+
+    ```bash
+    cd backend
+    npx ts-node-dev src/index.ts
+    ```
+
+    The backend will run on <http://localhost:3001>
+
+3. Start the frontend development server:
+
+    ```bash
+    cd frontend
+    npm run dev
+    ```
+
+    The frontend will run on <http://localhost:3000>
 
 ## Project Structure
 
@@ -71,6 +129,8 @@ The OpenAPI specification includes:
 -   Definitions for the `Task` and `CreateTaskDTO` types
 -   Response schemas for each endpoint
 
+![alt text](image.png)
+
 This allows the frontend to be able to:
 
 ## Frontend: OpenAPI Client Generation
@@ -83,60 +143,6 @@ The generated client is located in the `frontend/src/api` directory and is used
 throughout the frontend code to interact with the backend API.
 
 This way the frontend and backend can be kept in sync with each other.
-
-## Running with Docker Compose
-
-### Start the containers
-
-```bash
-docker compose up --build
-```
-
-### Stop the containers
-
-```bash
-docker compose down
-```
-
-The services will be available at:
-
--   Frontend: <http://localhost:3000>
--   Backend: <http://localhost:3001>
--   Swagger UI: <http://localhost:3001/docs>
-
-## Manual Setup (Without Docker)
-
-If you prefer to run the services without Docker:
-
-1. Install dependencies:
-
-    ```bash
-    # Install backend dependencies
-    cd backend
-    npm install
-
-    # Install frontend dependencies
-    cd ../frontend
-    npm install
-    ```
-
-2. Start the backend server:
-
-    ```bash
-    cd backend
-    npx ts-node-dev src/index.ts
-    ```
-
-    The backend will run on <http://localhost:3001>
-
-3. Start the frontend development server:
-
-    ```bash
-    cd frontend
-    npm run dev
-    ```
-
-    The frontend will run on <http://localhost:3000>
 
 ## Implementation Details
 
